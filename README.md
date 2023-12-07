@@ -23,3 +23,24 @@ pip3 install -r requirements.txt
 ```
 
 ## Usage
+
+1. Format domain list into line-by-line text file. See [urls.txt](./urls.txt) for an example.
+
+Example URL text file:
+```
+google.com
+cnn.com
+```
+
+2. Execute python command.
+
+Syntax:
+```
+python3 url_analyze.py <url-text-file>
+```
+
+Example:
+```
+python3 url_analyze.py ./urls.txt
+```
+
