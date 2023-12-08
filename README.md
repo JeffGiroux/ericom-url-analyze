@@ -8,7 +8,7 @@
 
 ## Introduction
 
-This code will take a line-by-line text file of domain names and run it through [Ericom's ZTEdge platform](https://www.ericom.com) to perform URL analysis in bulk. The outcome will be a list of domains and their associated categories.
+This code will take a line-by-line text file of domain names and run it through [Ericom's ZTEdge platform](https://www.ericom.com) to perform URL analysis in bulk. The outcome will be a list of domains and their associated categories saved to a CSV file.
 
 ## Requirements
 
@@ -37,21 +37,24 @@ secure.eicar.org/eicar_com.zip
 
 Syntax:
 ```
-python3 url_analyze.py <Tenant ID> <API Key> <URL-text-file>
+python3 url_analyze.py <Tenant ID> <API Key> </folder/URL-file> </folder/Output-CSV-file>
 ```
 
 Example:
 ```
-python3 url_analyze.py 555-444-333-222-111 keyAAABBBCCC ./urls.txt
+python3 url_analyze.py 555-444-333-222-111 keyAAABBBCCC ./urls.txt ./output.csv
+
+Authenticating and retrieving token...
+Analyzing URLs...
+Done!
 ```
 
 3. View results
 
-Example Output:
+Example Output in CSV file:
 ```
-Authenticating and retrieving token...
+Domain,Category
 google.com,Search Engines/Portals -> Search Engines & Portals
 cnn.com,News -> News
 secure.eicar.org/eicar_com.zip,High Risk -> Miscellaneous
-Done!
 ```

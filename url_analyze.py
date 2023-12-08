@@ -42,7 +42,7 @@ def analyze_urls(domainUrl,jwt,cookie):
 
 
 def usage():
-    print("Usage: python3 url_analyze.py <Tenant ID> <API Key> <URL-text-file>")
+    print("Usage: python3 url_analyze.py <Tenant ID> <API Key> <URL-file> <Output-CSV-file>")
 
 if __name__ == "__main__":
     
@@ -61,20 +61,28 @@ if __name__ == "__main__":
     try:
         urls = sys.argv[3]
     except:
-        print("Text File missing")
+        print("URL File missing")
+        usage()
+        exit(1)
+    try:
+        outputFile = sys.argv[4]
+    except:
+        print("Output File missing")
         usage()
         exit(1)
     
     print("Authenticating and retrieving token...")
     jwt, cookie = get_jwt(auth_tenant, key)
 
-    with open(urls, 'r') as file:
+    with open(urls, 'r') as file, open(outputFile, 'w') as output_file:
+        output_file.write("Domain,Category\n")
+        print("Analyzing URLs...")
         for line in file:
             # Assuming each line contains values separated by a space
             values = line.strip().split()
             domainUrl = values[0]
             resp = analyze_urls(domainUrl,jwt,cookie)
-            print(f'{domainUrl},{resp}')
+            output_file.write(f'{domainUrl},{resp}\n')
     
     print("Done!")
 
