@@ -19,3 +19,6 @@
 
 # Mac OS files
 *DS_Store
+
+# Output files
+output.csv
