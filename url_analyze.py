@@ -83,6 +83,7 @@ if __name__ == "__main__":
             domainUrl = values[0]
             resp = analyze_urls(domainUrl,jwt,cookie)
             output_file.write(f'{domainUrl},{resp}\n')
+            print(domainUrl)
     
     print("Done!")
 
