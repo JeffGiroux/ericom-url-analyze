@@ -24,23 +24,34 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-1. Format domain list into line-by-line text file. See [urls.txt](./urls.txt) for an example.
+1. Format the domain/URL list into line-by-line text file. See [urls.txt](./urls.txt) for an example.
 
 Example URL text file:
 ```
 google.com
 cnn.com
+secure.eicar.org/eicar_com.zip
 ```
 
 2. Execute python command.
 
 Syntax:
 ```
-python3 url_analyze.py <url-text-file>
+python3 url_analyze.py <Tenant ID> <API Key> <URL-text-file>
 ```
 
 Example:
 ```
-python3 url_analyze.py ./urls.txt
+python3 url_analyze.py 555-444-333-222-111 keyAAABBBCCC ./urls.txt
 ```
 
+3. View results
+
+Example Output:
+```
+Authenticating and retrieving token...
+google.com,Search Engines/Portals -> Search Engines & Portals
+cnn.com,News -> News
+secure.eicar.org/eicar_com.zip,High Risk -> Miscellaneous
+Done!
+```

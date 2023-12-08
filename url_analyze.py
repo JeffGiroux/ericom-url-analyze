@@ -74,7 +74,7 @@ if __name__ == "__main__":
             values = line.strip().split()
             domainUrl = values[0]
             resp = analyze_urls(domainUrl,jwt,cookie)
-            print(domainUrl,resp)
+            print(f'{domainUrl},{resp}')
     
     print("Done!")
 
